@@ -387,6 +387,11 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
+    start vendor.qcrild
+    start vendor.qcrild2
+    start vendor.dataqti
+    start vendor.dataadpl
+
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
@@ -491,30 +496,9 @@ on property:persist.debug.trace=1
 on property:vendor.media.target.version=*
     setprop vendor.sys.media.target.version ${vendor.media.target.version}
 
-<<<<<<< HEAD
-=======
-on property:vendor.netflix.bsp_rev=*
-    setprop ro.netflix.bsp_rev ${vendor.netflix.bsp_rev}
-
 on property:vendor.media.target_variant=*
     setprop ro.media.xml_variant.codecs ${vendor.media.target_variant}
     setprop ro.media.xml_variant.codecs_performance ${vendor.media.target_variant}
-
-service qcom-c_core-sh  /vendor/bin/init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
-
->>>>>>> 2667ceef... sdm660-common: Update rootdir from LA.UM.9.2.1.r1-06000-sdm660.0
-service qcom-c_main-sh /vendor/bin/init.class_main.sh
-    class main
-    user root
-    group root system
-    oneshot
-
-on property:vold.decrypt=trigger_restart_framework
-    start qcom-c_main-sh
-    start wcnss-service
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
@@ -526,12 +510,6 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
-
-service qmiproxy /system/bin/qmiproxy
-    class main
-    user radio
-    group radio diag
-    disabled
 
 # Data Migration
 service vendor.move_wifi_data /system/bin/move_wifi_data.sh
@@ -659,25 +637,6 @@ service hostapd_fst /vendor/bin/hw/hostapd -dd -g /data/vendor/wifi/hostapd/glob
     group wifi
     disabled
     oneshot
-
-service battery_monitor /system/bin/battery_monitor
-    user system
-    group system
-    disabled
-
-service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
-    class main
-    user radio
-    disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
-
-service vendor.ril-daemon3 /vendor/bin/hw/rild -c 3
-    class main
-    user radio
-    disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service profiler_daemon /system/bin/profiler_daemon
     class late_start
@@ -843,110 +802,5 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     onrestart restart audioserver
 
-<<<<<<< HEAD
 on property:dev.bootcomplete=1
     swapon_all /vendor/etc/fstab.qcom
-=======
-on boot
-    # Torch
-    chown root system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_0/max_brightness
-    chmod 0660 /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_0/max_brightness
-    chown root system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_1/max_brightness
-    chmod 0660 /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_1/max_brightness
-    chown root system /sys/class/leds/led:torch_0/max_brightness
-    chmod 0660 /sys/class/leds/led:torch_0/max_brightness
-    chown root system /sys/class/leds/led:torch_1/max_brightness
-    chmod 0660 /sys/class/leds/led:torch_1/max_brightness
-    chown root system /sys/devices/platform/soc/soc:qcom,camera-flash/leds/torch-light1/max_brightness
-    chmod 0660 /sys/devices/platform/soc/soc:qcom,camera-flash/leds/torch-light1/max_brightness
-    write /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_1/max_brightness 0
-
-    # Yellow light intensity
-    chown system system /sys/devices/soc/qpnp-flash-led-25/driver/qpnp-flash-led-25/leds/led:flash_1/max_brightness
-    chmod 0660 /sys/devices/soc/qpnp-flash-led-25/driver/qpnp-flash-led-25/leds/led:flash_1/max_brightness
-
-    # SmartCharging
-    chown system system /sys/class/power_supply/battery/charging_enabled
-    chmod 0666 /sys/class/power_supply/battery/charging_enabled
-    chown system system /sys/class/power_supply/battery/input_suspend
-    chmod 0666 /sys/class/power_supply/battery/input_suspend
-
-    # Vibration
-    chown root system /sys/class/timed_output/vibrator/vtg_level
-    chmod 0660 /sys/class/timed_output/vibrator/vtg_level
-    chown system system /sys/class/timed_output/vibrator/vmax_mv
-    chmod 0660 /sys/class/timed_output/vibrator/vmax_mv
-
-    # Vibrator Permissions
-    chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_override
-    chmod 0660 /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_override
-    write /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_override 1
-    chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_mv_user
-    chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_mv_call
-    chown system system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,haptics@c000/leds/vibrator/vmax_mv_strong
-
-    # KCal
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_cont
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_enable
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_hue
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_sat
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_val
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_min
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal
-    chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal_cont
-    chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal_enable
-    chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal_hue
-    chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal_sat
-    chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal_val
-    chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal_min
-    chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal
-
-    # Msm Thermal
-    chown system system /sys/module/msm_thermal/parameters/enabled
-    chmod 0660 /sys/module/msm_thermal/parameters/enabled
-    chown system system /sys/module/msm_thermal/core_control/enabled
-    chmod 0660 /sys/module/msm_thermal/core_control/enabled
-    chown system system /sys/module/msm_thermal/vdd_restriction/enabled
-    chmod 0660 /sys/module/msm_thermal/vdd_restriction/enabled
-
-    # High Performance Audio
-    chown system system /sys/module/snd_soc_wcd9330/parameters/high_perf_mode
-    chmod 0660 /sys/module/snd_soc_wcd9330/parameters/high_perf_mode
-
-    # Audio
-    chown system system /sys/kernel/sound_control/headphone_gain
-    chown system system /sys/kernel/sound_control/mic_gain
-    chown system system /sys/kernel/sound_control/speaker_gain
-    chown system system /sys/kernel/sound_control/earpiece_gain
-    chown system system /sys/kernel/sound_control/speaker_gain
-    chmod 0660 /sys/kernel/sound_control/headphone_gain
-    chmod 0660 /sys/kernel/sound_control/mic_gain
-    chmod 0660 /sys/kernel/sound_control/speaker_gain
-    chmod 0660 /sys/kernel/sound_control/earpiece_gain
-    chmod 0660 /sys/kernel/sound_control/speaker_gain
-
-    # Touchboost
-    chown system system /sys/module/msm_performance/parameters/touchboost
-    chmod 0660 /sys/module/msm_performance/parameters/touchboost
-
-    # Torch
-    chown root system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_0/max_brightness
-    chmod 0660 /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_0/max_brightness
-    chown root system /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_1/max_brightness
-    chmod 0660 /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_1/max_brightness
-    chown root system /sys/class/leds/led:torch_0/max_brightness
-    chmod 0660 /sys/class/leds/led:torch_0/max_brightness
-    chown root system /sys/class/leds/led:torch_1/max_brightness
-    chmod 0660 /sys/class/leds/led:torch_1/max_brightness
-    chown root system /sys/devices/platform/soc/soc:qcom,camera-flash/leds/torch-light1/max_brightness
-    chmod 0660 /sys/devices/platform/soc/soc:qcom,camera-flash/leds/torch-light1/max_brightness
-    write /sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_1/max_brightness 0
-
-    # Backlight dimmer
-    chown system system /sys/module/mdss_fb/parameters/backlight_dimmer
-    chmod 0660 /sys/module/mdss_fb/parameters/backlight_dimmer
-
-    # USB Fastcharge
-    chown system system /sys/kernel/fast_charge/force_fast_charge
-    chmod 0660 /sys/kernel/fast_charge/force_fast_charge
->>>>>>> 29538c2... sdm660-common: Update rootdir from LA.UM.9.2.1.r1-06000-sdm660.0
