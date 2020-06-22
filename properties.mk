@@ -211,6 +211,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sensors.sta_detect=true \
     ro.vendor.sensors.mot_detect=true
 
+# Seamless transfer
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.fflag.override.settings_seamless_transfer=true
+
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.delta_time.enable=true
