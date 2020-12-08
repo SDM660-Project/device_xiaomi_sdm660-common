@@ -436,3 +436,7 @@ PRODUCT_BOOT_JARS += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
+
+# Prebuilt Packages
+PRODUCT_PACKAGES += \
+    GalleryGo
