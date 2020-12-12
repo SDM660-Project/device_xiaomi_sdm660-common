@@ -448,3 +448,7 @@ $(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
 PRODUCT_PACKAGES += \
     GalleryGo \
     Gboard
+
+# Recorder
+PRODUCT_PACKAGES += \
+    OPScreenRecorder
