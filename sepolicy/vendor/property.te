@@ -2,3 +2,11 @@ type hal_fingerprint_prop, property_type;
 type mlipay_prop, property_type;
 type thermal_engine_prop, property_type;
 type vendor_power_prop, property_type;
+
+# Parallax
+type cpucore_prop, property_type;
+type lkm_prop, property_type;
+type tcp_prop, property_type;
+
+# Blur
+type blur_prop, property_type;
