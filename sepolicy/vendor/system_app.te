@@ -7,6 +7,10 @@ allow system_app sysfs_fcharge:file { open read getattr write };
 
 # FPS Info
 allow system_app sysfs_fps:file rw_file_perms;
+allow system_app sysfs_fpsinfo:file rw_file_perms;
+allow system_app sysfs_fpsinfo:file { read };
+allow system_app sysfs_fpsinfo:dir search;
+allow system_app sysfs:file { getattr };
 
 # KCAL
 allow system_app kcal_dev:file rw_file_perms;
