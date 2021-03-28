@@ -1,0 +1,2 @@
+allow qti_init_shell qti_init_shell:perf_event cpu;
+# allow qti_init_shell toolbox:toolbox kill;
