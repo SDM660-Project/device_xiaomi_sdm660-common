@@ -196,9 +196,11 @@ PRODUCT_PACKAGES += \
     hwcomposer.sdm660 \
     memtrack.sdm660 \
     libdisplayconfig \
+    libdisplayconfig.qti \
+    libdisplayconfig.qti.vendor \
     libtinyxml \
     libqdMetaData \
-    libqdMetaData.system
+    libqdMetaData.vendor
 
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0_32 \
@@ -212,7 +214,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     android.hardware.renderscript@1.0-impl \
     android.frameworks.displayservice@1.0 \
-    vendor.display.config@1.1
+    vendor.display.config@2.0 \
+    vendor.display.config@2.0_vendor
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -434,7 +437,8 @@ PRODUCT_COPY_FILES += \
 # WiFi Display
 PRODUCT_PACKAGES += \
     libaacwrapper \
-    libnl
+    libnl \
+    libstagefright_enc_common
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
