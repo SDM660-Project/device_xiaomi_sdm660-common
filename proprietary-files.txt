@@ -208,16 +208,6 @@ vendor/lib64/libSecureUILib.so|680788dde32476a5f118fcb76135426df6f377c2
 vendor/lib64/libssd.so|bf3b64cc51cbbe2d70373d94025725c49ce1d46b
 vendor/lib64/libStDrvInt.so|8de13b46e8f21016c0fffaec34b0a2bacfccec04
 
-# DRM - Widevine - from laurel_sprout V12.0.3.0.RFQMIXM
-vendor/bin/hw/android.hardware.drm@1.3-service.widevine|92e4797cb000e86ba74fba9da2c014d7ec8fa1a6
-vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|c35e1a6f9a6faff19064a81e07c4be82ceaf4bb5
--vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
-vendor/lib64/libbase64.so|caba4e42499d8e53e80c5e05313a36058ae5123e
-vendor/lib64/libcpion.so|afa44f5941a880a4d304dfac4b5d175762b20539
-vendor/lib64/librmp.so|176aed768090f0c8b48cb6ad9e397b35f128b2a5
-vendor/lib64/libwvhidl.so|ed7cd4a47e17738dfaec0c45d4184d75e77f5693
-vendor/lib64/mediadrm/libwvdrmengine.so|9cd722b68ae795f48b4a8f082fcfdc84219fb703
-
 # GPS - from laurel_sprout V12.0.3.0.RFQMIXM
 vendor/bin/garden_app|24cc82cab6ede28962c7e0b24cd6a2daf010a503
 vendor/bin/loc_launcher|bf13787d95c2fec6fadb2552fa63b12ab606575c
@@ -633,6 +623,11 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|e47baed52f1c0637de34fa55e45a86b
 
 # Wifi - from laurel_sprout V12.0.3.0.RFQMIXM
 vendor/bin/cnss-daemon|62963319931ac8c00083e401f875211943c1f281
+
+# Widevine - from jasmine
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine|1aed116c6cd73ee0c89a5eec050afab5c64b9f87
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|dee5b7838ac561a2292e89fc0c4ccd1932224215
+vendor/lib64/libwvhidl.so|38677623330ec145a62afdef110c713c9492671c
 
 # WFD - from LA.UM.9.2.r1-01800-SDMxx0.0
 -framework/WfdCommon.jar|0faa0fdf415b1ecdc92dfe6a52946a3248b7b02b
