@@ -692,3 +692,19 @@ vendor/lib64/libmiracast.so|8c6bdb1d54486542f392d042aeb66571f2235f13
 vendor/lib64/libmmosal.so|e9fdb48163e92b089cea0c397723a8416436c272
 vendor/lib64/libwfdhdcpcp.so|a9f56d29d9243272ca73d564977022d3aef3b8e4
 vendor/lib64/vendor.qti.hardware.sigma_miracast@1.0.so|5be9cd005e79619fbbc0c4bad97a388655eda945
+
+# WFD Dependency - from RQ2A.210305.006
+system_ext/lib/libdisplayconfig.qti.so|0918dbe9e9c6844bb9dda29b173d5b449ed438bd
+system_ext/lib/libqdMetaData.so|0bcc123f4fd7d2f833f55db7fca755d943277d10
+system_ext/lib/vendor.display.config@1.0.so|05af4680eec0aa3671207f32761a956206f4c792
+system_ext/lib/vendor.display.config@2.0.so|2df5e707d7ebf9a43e2fdcdf05b4f5864bfa2d61
+system_ext/lib64/libdisplayconfig.qti.so|0c9b7e15ca8a392284258ceb5fddb44bb83d0f4f
+system_ext/lib64/libqdMetaData.so|9978bf12126101bec6dcf3170714de690ac7a90c
+system_ext/lib64/vendor.display.config@1.0.so|a20a2dcf2bc8660afdb2ad819840c272dd2151f2
+system_ext/lib64/vendor.display.config@2.0.so|2bcaf6c6fec98d58334fddceb8531adb8d74cce0
+vendor/lib/libdisplayconfig.qti.so|5d89e4479d2df2b332397c504605a678681316af
+vendor/lib/libqdMetaData.so|27b19c6f96f60f78b45ec5e4c9250b15e7acb412
+vendor/lib/vendor.display.config@2.0.so|ac548f2042e478ccb75e27ee5d667cd5899c10bf
+vendor/lib64/libdisplayconfig.qti.so|1e99dc1555b148ff951bdb8071b4ac5d85dae5ac
+vendor/lib64/libqdMetaData.so|13edb7afc000f3144258b3fda76a2ecbfe0f4991
+vendor/lib64/vendor.display.config@2.0.so|5bf74b0011da436230ab0a5d185e0ac9379efbf0
