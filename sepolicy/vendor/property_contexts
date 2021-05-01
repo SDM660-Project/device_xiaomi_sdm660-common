@@ -62,3 +62,6 @@ persist.tcp.profile		           u:object_r:tcp_prop:s0
 
 # Blur
 persist.blur.profile		        u:object_r:blur_prop:s0
+
+# MPCTL
+sys.post_boot.parsed                    u:object_r:vendor_mpctl_prop:s0

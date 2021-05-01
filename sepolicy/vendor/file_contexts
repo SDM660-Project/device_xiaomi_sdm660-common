@@ -75,3 +75,6 @@
 /sys/module/msm_thermal/parameters/enabled		u:object_r:sysfs_msmthermal:s0
 /sys/module/msm_thermal/core_control/enabled		u:object_r:sysfs_corecontrol:s0
 /sys/module/msm_thermal/vdd_restriction/enabled		u:object_r:sysfs_vddrestrict:s0
+
+# Video4linux sysfs nodes
+/sys/devices/platform/soc/caa0000\.qcom,jpeg/video4linux/video1(/.*)?                         u:object_r:sysfs_graphics:s0
