@@ -8,7 +8,7 @@ rm -rf vendor/qcom/opensource/power
 rm -rf vendor/qcom/opensource/data-ipa-cfg-mgr
 
 # clone
-git clone https://github.com/ChrisW444/vendor_XiaomiParts vendor/XiaomiParts
+git clone https://github.com/ChrisW444/vendor_XiaomiParts -b 4.19-kernel vendor/XiaomiParts
 git clone https://github.com/SDM660-Project/android_vendor_qcom_opensource_power vendor/qcom/opensource/power
 git clone https://github.com/SDM660-Project/android_vendor_qcom_opensource_data-ipa-cfg-mgr vendor/qcom/opensource/data-ipa-cfg-mgr
 git clone https://github.com/SDM660-Project/android_hardware_qcom_display hardware/qcom-caf/sdm660/display
