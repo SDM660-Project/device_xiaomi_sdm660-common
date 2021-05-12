@@ -137,6 +137,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.dpm.nsrm.bkg.evt=3955 \
     persist.vendor.dpmhalservice.enable=1
 
+# DRM Service
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true \
+    media.mediadrmservice.enable=true
+
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
