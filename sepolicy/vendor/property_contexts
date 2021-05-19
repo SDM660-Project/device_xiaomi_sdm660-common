@@ -61,13 +61,5 @@ persist.vendor.wigig.npt.enable         u:object_r:vendor_default_prop:s0
 persist.sys.theme.accentcolor                 u:object_r:theme_prop:s0
 persist.sys.theme.gradientcolor               u:object_r:theme_prop:s0
 
-# Parallax
-persist.cpucore.profile                    u:object_r:cpucore_prop:s0
-persist.lkm.profile		           u:object_r:lkm_prop:s0
-persist.tcp.profile		           u:object_r:tcp_prop:s0
-
-# Blur
-persist.blur.profile		        u:object_r:blur_prop:s0
-
 # MPCTL
 sys.post_boot.parsed                    u:object_r:vendor_mpctl_prop:s0
