@@ -36,17 +36,5 @@
 # Thermal
 /data/vendor/thermal(/.*)?                      u:object_r:thermal_data_file:s0
 
-# FPS Info
-/sys/devices/virtual/graphics/fb0/measured_fps           u:object_r:sysfs_fps:s0
-
-# KCAL
-/sys/devices/platform/kcal_ctrl.0(/.*)?                      u:object_r:kcal_dev:s0
-/sys/bus/platform/drivers/kcal_ctrl(/.*)?                    u:object_r:kcal_dev:s0
-
-# Audio gain
-/sys/kernel/sound_control/headphone_gain                     u:object_r:sysfs_headgain:s0
-/sys/kernel/sound_control/mic_gain                           u:object_r:sysfs_micgain:s0
-/sys/kernel/sound_control/earpiece_gain                      u:object_r:sysfs_egain:s0
-
 # Video4linux sysfs nodes
 /sys/devices/platform/soc/caa0000\.qcom,jpeg/video4linux/video1(/.*)?                         u:object_r:sysfs_graphics:s0
