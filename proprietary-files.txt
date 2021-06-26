@@ -68,12 +68,6 @@ vendor/lib/soundfx/libqcbassboost.so|73339450a42b598a3c13e67b3d4a2266d986fea2
 vendor/lib/soundfx/libqcreverb.so|eb437cd5e264b1adb4546c6a5617c5da17be5839
 vendor/lib/soundfx/libqcvirt.so|ee9eaa81bb24ac0379e06b44ef257967a4d32614
 
-# Audio (A2dp) - from jasmine
-vendor/lib/btaudio_offload_if.so|d9a9795e173dffd4b5ee000acac66c1ad6f1648c
-vendor/lib/hw/audio.bluetooth_qti.default.so|c64b101dd33042d2f702ab5059231ca9684fc1d0
-vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|947afef6bf7a05a9a2b45022edfed06bd7c00e64
-vendor/lib/libbluetooth_audio_session_qti.so|53fd0369c50fbaef12c22e25e3073a6fc9f05bb7
-
 # Bluetooth - from jasmine
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|57a0a575a2b1b96176fda1bcb84ea8371c4070d1
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6cf2212e71b901ca4d58b959
