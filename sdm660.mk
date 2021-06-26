@@ -21,6 +21,9 @@
 # definition file).
 #
 
+# Xiaomi Parts
+$(call inherit-product-if-exists, vendor/XiaomiParts/xiaomiparts.mk)
+
 # Inherit properties
 $(call inherit-product, $(LOCAL_PATH)/properties.mk)
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
